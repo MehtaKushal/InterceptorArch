@@ -16,10 +16,12 @@ public class Button
     }
 }
 
+//Concrete Framework
 public class CdPlayer : IPushCallBack
 {
     private Button _playButton;
     private Button _stopButton;
+    //Possible interception point
     public void NotifyButtonPushed(Button b)
     {
         if (b == _playButton)
@@ -49,6 +51,7 @@ public class CdPlayer : IPushCallBack
     }
 }
 
+//Application
 public class Program
 {
     static void Main(string[] args)
