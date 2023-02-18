@@ -8,9 +8,17 @@ namespace InterceptorArch
 {
     internal class CdPlayerInterceptor : IInterceptor
     {
+        /*private CdPlayer _cdPlayer;
+
+        public CdPlayerInterceptor(CdPlayer cdPlayer)
+        {
+            _cdPlayer = cdPlayer;
+        }*/
+
         public void Invoke(IContext context)
         {
-            throw new NotImplementedException();
+            var buttonContext = context as ButtonContext;
+            buttonContext.controlCdPlayer();
         }
     }
 }
