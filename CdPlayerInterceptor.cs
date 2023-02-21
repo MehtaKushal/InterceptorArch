@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterceptorArch
 {
-    internal class CdPlayerInterceptor : IInterceptor
+    public class CdPlayerInterceptor : IInterceptor
     {
         /*private CdPlayer _cdPlayer;
 
@@ -18,7 +18,7 @@ namespace InterceptorArch
         public void Invoke(IContext context)
         {
             var buttonContext = context as ButtonContext;
-            buttonContext.controlCdPlayer();
+            buttonContext.notifyButtonPushed();
         }
     }
 }
