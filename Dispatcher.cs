@@ -10,9 +10,9 @@ namespace InterceptorArch
     {
         private List<IInterceptor> _interceptors;
 
-        public Dispatcher(List<IInterceptor> interceptors)
+        public Dispatcher()
         {
-            _interceptors = interceptors;
+            _interceptors = new List<IInterceptor>();
         }
         //attach, detach to remove interceptor
         public void Dispatch(IContext context)
@@ -21,6 +21,15 @@ namespace InterceptorArch
             {
                 interceptor.Invoke(context);
             }
+        }
+        public void Attach(IInterceptor interceptor)
+        {
+            _interceptors.Add(interceptor);
+        }
+
+        public void Detach(IInterceptor interceptor)
+        {
+            _interceptors.Remove(interceptor);
         }
     }
 }

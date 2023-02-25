@@ -42,13 +42,16 @@ public class Program
     static void Main(string[] args)
     {
         CdPlayer cdPlayer = new CdPlayer();
-        var cdPlayerInterceptor = new FileLoggerInterceptor();
-        var dispatcher = new Dispatcher(new List<IInterceptor> { cdPlayerInterceptor });
+        var fileLoggerInterceptor = new FileLoggerInterceptor();
+
+        Dispatcher dispatcher = new Dispatcher();
+        dispatcher.Detach(fileLoggerInterceptor);
         Button playButton = new Button(dispatcher, cdPlayer, "play");
         Button stopButton = new Button(dispatcher, cdPlayer, "stop");
         cdPlayer.SetPlayButton(playButton);
         cdPlayer.SetStopButton(stopButton);
         playButton.Push();
         stopButton.Push();
+        dispatcher.Detach(fileLoggerInterceptor);
     }
 }
