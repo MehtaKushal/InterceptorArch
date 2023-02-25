@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterceptorArch
 {
-    public class CdPlayerInterceptor : IInterceptor
+    public class FileLoggerInterceptor : IInterceptor
     {
         // Add additional functionality kind of a logger and a file logger
         public void Invoke(IContext context)

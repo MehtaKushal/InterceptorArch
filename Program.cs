@@ -42,7 +42,7 @@ public class Program
     static void Main(string[] args)
     {
         CdPlayer cdPlayer = new CdPlayer();
-        var cdPlayerInterceptor = new CdPlayerInterceptor();
+        var cdPlayerInterceptor = new FileLoggerInterceptor();
         var dispatcher = new Dispatcher(new List<IInterceptor> { cdPlayerInterceptor });
         Button playButton = new Button(dispatcher, cdPlayer, "play");
         Button stopButton = new Button(dispatcher, cdPlayer, "stop");

@@ -13,19 +13,6 @@ namespace InterceptorArch
     public class ButtonContext: IContext
     {
         public Button button { get; set; }
-        public void notifyButtonPushed()
-        {
-            IPushCallBack cdPlayer = this.button.getCdPlayer();
-            cdPlayer.NotifyButtonPushed(button);
-            //if (button == cdPlayer.playButton)
-            //{
-            //    cdPlayer.PlayButtonPushed(button);
-            //}
-            //else if (button == cdPlayer.stopButton)
-            //{
-            //    cdPlayer.StopButtonPushed(button);
-            //}
-        }
     }
     public class Button
     {
