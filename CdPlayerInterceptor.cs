@@ -8,17 +8,16 @@ namespace InterceptorArch
 {
     public class CdPlayerInterceptor : IInterceptor
     {
-        /*private CdPlayer _cdPlayer;
-
-        public CdPlayerInterceptor(CdPlayer cdPlayer)
-        {
-            _cdPlayer = cdPlayer;
-        }*/
-
+        // Add additional functionality kind of a logger and a file logger
         public void Invoke(IContext context)
         {
             var buttonContext = context as ButtonContext;
-            buttonContext.notifyButtonPushed();
+            string buttonName = buttonContext.button.getName();
+            string logMessage = $"{DateTime.Now}: {buttonName} button pushed";
+            using (StreamWriter writer = new StreamWriter("log.txt", true))
+            {
+                writer.WriteLine(logMessage);
+            }
         }
     }
 }

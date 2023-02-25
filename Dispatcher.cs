@@ -14,7 +14,7 @@ namespace InterceptorArch
         {
             _interceptors = interceptors;
         }
-
+        //attach, detach to remove interceptor
         public void Dispatch(IContext context)
         {
             foreach (var interceptor in _interceptors)
