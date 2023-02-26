@@ -23,7 +23,7 @@ namespace InterceptorArch.Test
 
             // Act
             playButton.Push();
-
+            dispatcher.Detach(cdPlayerInterceptor);
             // Assert
             string logContents = File.ReadAllText("log.txt");
             Assert.That(logContents, Does.Contain("play button pushed"));
@@ -42,7 +42,7 @@ namespace InterceptorArch.Test
 
             // Act
             stopButton.Push();
-
+            dispatcher.Detach(cdPlayerInterceptor);
             // Assert
             string logContents = File.ReadAllText("log.txt");
             Assert.That(logContents, Does.Contain("stop button pushed"));
